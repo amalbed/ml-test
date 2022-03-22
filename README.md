@@ -1,6 +1,8 @@
+## This project helps to predict one or more basic properties of a molecule using deep learning models.
+
 ## [Flask API Servier]
 
-Simple [Flask API] enhanced with SqlAlchemy persistence and deployment scripts via Docker - Provided by **Amal bedoui**. It has the ready-to-use route for **model1** .
+ [Flask API] enhanced with SqlAlchemy persistence and deployment scripts via Docker - Provided by **Amal bedoui**. It has the ready-to-use route for **model1** .
 
 
 
@@ -64,7 +66,15 @@ $ pip install -r requirements.txt
 
 <br />
 
-> **Step #4** - setup `flask` command for my app
+> **Step #4** - download model1 from this link:`https://drive.google.com/file/d/1JGU2xJfUmW84t_xJJ79p-ZhuEEVA-wY2/view?hl=en`
+
+```
+add it to ml-test/src
+```
+
+
+
+> **Step #5** - setup `flask` command for my app
 
 ```bash
 $ export FLASK_APP=run.py
@@ -75,7 +85,7 @@ $ export FLASK_ENV=development
 
 <br />
 
-> **Step #5** - start test APIs server at `localhost:5000`
+> **Step #6** - start test APIs server at `localhost:5000`
 
 ```bash
 $ flask run
@@ -83,11 +93,6 @@ $ flask run
 
 <br />
 
-> **Step #6** - download model1 from this link:`https://drive.google.com/file/d/1JGU2xJfUmW84t_xJJ79p-ZhuEEVA-wY2/view?hl=en`
-
-```
-add it to ml-test/src
-```
 
 
 <br />
