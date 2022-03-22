@@ -20,9 +20,7 @@ from rdkit.Chem import DataStructs
 
 class molecule:
 
-    # baseline model
     def create_baseline():
-        # create model
         model = Sequential()
         model.add(Dense(2048, input_dim=2048, activation="relu"))
         model.add(BatchNormalization())
@@ -34,7 +32,6 @@ class molecule:
         model.add(BatchNormalization())
         model.add(Dropout(0.5))
         model.add(Dense(1, activation="sigmoid"))
-        # Compile model
         opt = tf.keras.optimizers.Adam(learning_rate=0.001)
         model.compile(
             loss="binary_crossentropy",

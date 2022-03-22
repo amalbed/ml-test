@@ -48,7 +48,6 @@ def model_1():
 
     results = {}
     best_threshold = {}
-    # for threshold in [1,50,80,90,100,110,120,130,140]:
     for threshold in [120, 130, 140]:
         for index, (train, test) in enumerate(spliter.split(X, y)):
             class_weight = {0: threshold, 1: 1}
@@ -74,7 +73,6 @@ def model_1():
                 ),
             ]
 
-            # train
             model = molecule.create_baseline()
             model.fit(
                 x=X[train],
@@ -91,10 +89,8 @@ def model_1():
             )
             model.load_weights(f"model_1/model{threshold}_{index}.hdf5")
 
-            # predict
             result = model.predict(X[test])
 
-            # evaluate
             best_thr = scipy.optimize.fmin(
                 molecule.thr_to_accuracy, args=(y[test], result), x0=0.5
             )
@@ -178,7 +174,6 @@ def model_2():
 
     results = {}
     best_threshold = {}
-    # for threshold in [1,50,80,90,100,110,120,130,140]:
     for threshold in [130, 140]:
         for index, (train, test) in enumerate(spliter.split(X, y)):
             class_weight = {0: threshold, 1: 1}
@@ -204,7 +199,6 @@ def model_2():
                     save_freq="epoch",
                 ),
             ]
-            # train
             model = model_smile()
             model.compile(
                 loss="binary_crossentropy",
@@ -226,9 +220,7 @@ def model_2():
                 class_weight=class_weight,
             )
             model.load_weights(f"model2mini/model{threshold}_{index}.hdf5")
-            # predict
             result = model.predict(X[test])
-            # evaluate
             best_thr = scipy.optimize.fmin(
                 molecule.thr_to_accuracy, args=(y[test], result), x0=0.5
             )
